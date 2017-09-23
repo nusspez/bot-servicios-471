@@ -32,5 +32,13 @@ Consíguelas [acá](https://apps.twitter.com/)
 
 Puedes o exportarlas o usarlas en cada ejecución.
 
+#### Cuentas a retweetear
+
+En `config.yml` hay un array con la lista de cuentas.
+
+La API de Twitter necesita el `id` – *no el screen name*. Es importante que el `id` sea un `string`.
+
+Consigue el `id` [acá](http://gettwitterid.com/)
+
 ## Trae tu bot!
 Como la aplicación busca los tokens para comunicarse con la API de Twitter en variables de entorno, puedes usar cualquier cuenta.
