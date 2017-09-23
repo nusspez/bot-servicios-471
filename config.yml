@@ -1,9 +1,4 @@
 ---
-auth:
-  consumer_key: tWO7XoirfPqQo8RdeYM8SvwbD
-  consumer_secret: 9T503l9pKTaZPu3j40Nd1Hpew1YXlgqvPqHuVVRUYPSkZephCT
-  access_key: 911451685058379776-Ei9QMSQgBhhJrAn955RSdH90BtEnC4z
-  access_secret: K12iw5WDAas2Dp57oEUXaObQVL4fEGt3YPiiusZLfGlF1
 retweet:
   from:
     - screen_name: C5_CDMX
