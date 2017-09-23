@@ -14,7 +14,7 @@ accounts_to_follow = [d.get('id') for d in config.get('retweet').get('from')]
 class Listener(StreamListener):
     
     def on_status(self, status):
-        if status.author.id_str in accounts_to_follow:
+        if status.author.id_str in accounts_to_follow and status.in_reply_to_user_id is None:
             # client.retweet(status['id'])
             print(status.text)
     
