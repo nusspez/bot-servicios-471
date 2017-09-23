@@ -2,6 +2,7 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, API, Stream
 from config import config
 import os
+import sys
 
 auth = OAuthHandler(os.getenv('CONSUMER_KEY'), os.getenv('CONSUMER_SECRET'))
 auth.set_access_token(os.getenv('ACCESS_TOKEN'), os.getenv('ACCESS_TOKEN_SECRET'))
@@ -14,9 +15,17 @@ accounts_to_follow = [d.get('id') for d in config.get('retweet').get('from')]
 class Listener(StreamListener):
     
     def on_status(self, status):
+        retweet = False
         if status.author.id_str in accounts_to_follow and status.in_reply_to_user_id is None:
-            # client.retweet(status['id'])
-            print(status.text)
+            retweet = True
+            print(u'{1} (https://twitter.com/{0}/status/{2}) - @{0}'.format(
+                status.user.screen_name,
+                status.text[:20] + '...' if len(status.text) > 10 else status.text,
+                status.id_str
+            ))
+        
+        if retweet and '-d' not in sys.argv:
+            client.retweet(status.id_str)
     
     def on_error(self, status_code):
         if status_code == 420:
