@@ -1,0 +1,9 @@
+import tweepy
+CONSUMER_KEY = '2sJn5i5NzsYvy2rNfz0044ue4'
+CONSUMER_SECRET = 'RBJZo24QVZLkOV2GymgIDiTx01DBjjcEFimmLRrrsR3h6sgeEt'
+ACCESS_KEY = 'RBJZo24QVZLkOV2GymgIDiTx01DBjjcEFimmLRrrsR3h6sgeEt'
+ACCESS_SECRET = 'K12iw5WDAas2Dp57oEUXaObQVL4fEGt3YPiiusZLfGlF1'
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
+api.update_status('hola mundo')
